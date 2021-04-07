@@ -9,7 +9,7 @@ d3.json("/data/popular-lang-2018.json").then(data => {
     d.value = Number(d.value)
   });
 
-  const svg = d3.select("#barchart-area").append("svg")
+  const svg = d3.select("#barChart-area").append("svg")
     .attr("width", width)
     .attr("height", 1000)
 
