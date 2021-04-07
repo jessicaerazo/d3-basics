@@ -17,9 +17,9 @@ d3.json("/data/popular-lang-2018.json").then(data => {
     .attr('transform', `translate(${margin}, ${margin})`);
 
   const xScale = d3.scaleBand()
-    .range([0, width])
+    .range([0, 760])
     .domain(data.map((s) => s.language))
-    .padding(0.2)
+    .padding(0.3)
 
   const yScale = d3.scaleLinear()
     .range([height, 0])
@@ -31,6 +31,13 @@ d3.json("/data/popular-lang-2018.json").then(data => {
 
   chart.append('g')
     .call(d3.axisLeft(yScale));
+
+  chart.append('g')
+    .attr('class', 'grid')
+    .call(d3.axisLeft()
+      .scale(yScale)
+      .tickSize(-width, 0, 0)
+      .tickFormat(''))
 
   const barGroups = chart.selectAll()
     .data(data)
@@ -44,7 +51,6 @@ d3.json("/data/popular-lang-2018.json").then(data => {
     .attr('height', (g) => height - yScale(g.value))
     .attr('width', xScale.bandwidth())
     .attr('fill', (g) => g.color)
-
 
   barGroups
     .append('text')
@@ -76,6 +82,10 @@ d3.json("/data/popular-lang-2018.json").then(data => {
     .attr('y', 40)
     .attr('text-anchor', 'middle')
     .text('Most loved programming languages in 2018')
+
+
+
+
 
 }).catch(e => {
   console.log(e);

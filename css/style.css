@@ -6,6 +6,19 @@ text {
   font-size: 12px;
 }
 
+line {
+  stroke: gray;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.grid .tick line {
+  stroke: #9FAAAE;
+  stroke-opacity: 0.3;
+}
+
 #chart-area {
   margin-top: 20px;
 }
