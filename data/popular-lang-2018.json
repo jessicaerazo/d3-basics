@@ -2,22 +2,22 @@
   {
     "language": "Rust",
     "value": "78.9",
-    "color": "#000000"
+    "color": "#ffcb91"
   },
   {
     "language": "Kotlin",
     "value": "75.1",
-    "color": "#00a2ee"
+    "color": "#ffefa1"
   },
   {
     "language": "Python",
     "value": "68.0",
-    "color": "#fbcb39"
+    "color": "#94ebcd"
   },
   {
     "language": "TypeScript",
     "value": "67.0",
-    "color": "#007bc8"
+    "color": "#6ddccf"
   },
   {
     "language": "Go",

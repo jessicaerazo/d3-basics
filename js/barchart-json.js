@@ -19,7 +19,7 @@ d3.json("/data/popular-lang-2018.json").then(data => {
   const xScale = d3.scaleBand()
     .range([0, width])
     .domain(data.map((s) => s.language))
-    .padding(0.4)
+    .padding(0.2)
 
   const yScale = d3.scaleLinear()
     .range([height, 0])
@@ -39,11 +39,45 @@ d3.json("/data/popular-lang-2018.json").then(data => {
 
   barGroups
     .append('rect')
-    .attr('class', 'bar')
     .attr('x', (g) => xScale(g.language))
     .attr('y', (g) => yScale(g.value))
     .attr('height', (g) => height - yScale(g.value))
     .attr('width', xScale.bandwidth())
+    .attr('fill', (g) => g.color)
+
+
+  barGroups
+    .append('text')
+    .attr('class', 'value')
+    .attr('x', (a) => xScale(a.language) + xScale.bandwidth() / 2)
+    .attr('y', (a) => yScale(a.value) + 30)
+    .attr('text-anchor', 'middle')
+    .text((a) => `${a.value}%`)
+
+  svg
+    .append('text')
+    .attr('class', 'label')
+    .attr('x', -(height / 2) - margin)
+    .attr('y', margin / 2.4)
+    .attr('transform', 'rotate(-90)')
+    .attr('text-anchor', 'middle')
+    .text('Meter (%)')
+
+  svg.append('text')
+    .attr('class', 'label')
+    .attr('x', width / 2 + margin)
+    .attr('y', height + margin * 1.7)
+    .attr('text-anchor', 'middle')
+    .text('Languages')
+
+  svg.append('text')
+    .attr('class', 'title')
+    .attr('x', width / 2 + margin)
+    .attr('y', 40)
+    .attr('text-anchor', 'middle')
+    .text('Most loved programming languages in 2018')
+
+
 
 }).catch(e => {
   console.log(e);
