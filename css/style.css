@@ -1,3 +1,11 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+text {
+  font-size: 12px;
+}
+
 #chart-area {
   margin-top: 20px;
 }
@@ -9,6 +17,7 @@ text.title {
 
 text.value {
   font-size: 12px;
+  fill: #fff;
 }
 
 text.label {
