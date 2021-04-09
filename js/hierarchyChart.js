@@ -10,7 +10,7 @@ const tree = d3.tree()
 const stratify = d3.stratify()
   .parentId((d) => { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
-d3.csv("/data/tree.csv").then(data => {
+d3.csv("data/tree.csv").then(data => {
   const root = stratify(data)
     .sort((a, b) => { return (a.height - b.height) || a.id.localeCompare(b.id); });
 
