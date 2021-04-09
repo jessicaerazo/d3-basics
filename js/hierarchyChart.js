@@ -40,7 +40,7 @@ d3.csv("data/tree.csv").then(data => {
     .style("text-anchor", function (d) { return d.children ? "end" : "start"; })
     .text(function (d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
 }).catch(e => {
-  console.log(e);
+  console.log('error: ', e);
 });
 
 

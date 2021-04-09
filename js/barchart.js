@@ -4,7 +4,7 @@ const margin = 80;
 const width = 1000 - 2 * margin;
 const height = 800 - 2 * margin;
 
-d3.json("/data/popular-lang-2018.json").then(data => {
+d3.json("data/popular-lang-2018.json").then(data => {
   data.forEach(d => {
     d.value = Number(d.value)
   });
