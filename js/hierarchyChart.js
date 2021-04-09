@@ -1,6 +1,4 @@
-
-
-var svg = d3.select('svg'),
+let svg = d3.select('svg'),
   width = +svg.attr('width'),
   height = +svg.attr('height'),
   g = svg.append('g').attr('transform', 'translate(40,0)')
@@ -9,15 +7,15 @@ var svg = d3.select('svg'),
 const tree = d3.tree()
   .size([height, width - 160]);
 
-var stratify = d3.stratify()
+const stratify = d3.stratify()
   .parentId((d) => { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
 d3.csv("/data/tree.csv").then(data => {
-  var root = stratify(data)
+  const root = stratify(data)
     .sort((a, b) => { return (a.height - b.height) || a.id.localeCompare(b.id); });
 
   // Add the links (given by calling tree(root), which also adds positional x/y coordinates) for the nodes
-  var link = g.selectAll(".link")
+  const link = g.selectAll(".link")
     .data(tree(root).links())
     .enter().append("path")
     .attr("class", "link")
@@ -27,7 +25,7 @@ d3.csv("/data/tree.csv").then(data => {
     );
 
   // Add groups for each node in the hierarchy with circles and text labels
-  var node = g.selectAll(".node")
+  let node = g.selectAll(".node")
     .data(root.descendants())
     .enter().append("g")
     .attr("class", function (d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
@@ -43,7 +41,6 @@ d3.csv("/data/tree.csv").then(data => {
     .text(function (d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
 }).catch(e => {
   console.log(e);
-  if (error) throw error;
 });
 
 
