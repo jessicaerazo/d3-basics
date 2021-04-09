@@ -11,7 +11,7 @@ d3.json("data/popular-lang-2018.json").then(data => {
 
   const svg = d3.select("#barChart-area").append("svg")
     .attr("width", width)
-    .attr("height", 1000)
+    .attr("height", 850)
 
   const chart = svg.append('g')
     .attr('transform', `translate(${margin}, ${margin})`);

@@ -68,7 +68,9 @@ svg {
 }
 
 .code-container {
+  height: 300px;
+  padding: 10px;
   background-color: #eeeeee;
   border: 2px solid #eeeeee;
-  border-radius: 15px;
+  border-radius: 10px;
 }
