@@ -83,6 +83,6 @@ d3.json("data/popular-lang-2018.json").then(data => {
     .attr('text-anchor', 'middle')
     .text('Most loved programming languages in 2018')
 }).catch(e => {
-  console.log(e);
+  console.log('error: ', e);
 })
 

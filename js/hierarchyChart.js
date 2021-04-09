@@ -28,17 +28,17 @@ d3.csv("data/tree.csv").then(data => {
   let node = g.selectAll(".node")
     .data(root.descendants())
     .enter().append("g")
-    .attr("class", function (d) { return "node" + (d.children ? " node--internal" : " node--leaf"); })
-    .attr("transform", function (d) { return "translate(" + d.y + "," + d.x + ")"; })
+    .attr("class", (d) => { return "node" + (d.children ? " node--internal" : " node--leaf"); })
+    .attr("transform", (d) => { return "translate(" + d.y + "," + d.x + ")"; })
 
   node.append("circle")
     .attr("r", 2.5);
 
   node.append("text")
     .attr("dy", 3)
-    .attr("x", function (d) { return d.children ? -8 : 8; })
-    .style("text-anchor", function (d) { return d.children ? "end" : "start"; })
-    .text(function (d) { return d.id.substring(d.id.lastIndexOf(".") + 1); });
+    .attr("x", (d) => { return d.children ? -8 : 8; })
+    .style("text-anchor", (d) => { return d.children ? "end" : "start"; })
+    .text((d) => { return d.id.substring(d.id.lastIndexOf(".") + 1); });
 }).catch(e => {
   console.log('error: ', e);
 });

@@ -66,3 +66,9 @@ svg {
   stroke-opacity: 0.4;
   stroke-width: 1.5px;
 }
+
+.code-container {
+  background-color: #eeeeee;
+  border: 2px solid #eeeeee;
+  border-radius: 15px;
+}
